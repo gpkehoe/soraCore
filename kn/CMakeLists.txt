@@ -11,8 +11,9 @@ if (catkin_FOUND)
 ###################################
 ## catkin specific configuration ##
 ###################################
+file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 catkin_package(
-  INCLUDE_DIRS src
+  INCLUDE_DIRS src ${CATKIN_DEVEL_PREFIX}/include
   LIBRARIES knShare knMath knGeometry knFrameStore knMotorShare
   )
 else (catkin_FOUND)
@@ -50,6 +51,7 @@ find_package( Doxygen )
 include_directories(
   ${PROJECT_SOURCE_DIR}/src
   ${PROJECT_BINARY_DIR}/src
+  ${CATKIN_DEVEL_PREFIX}/include
 )
 
 #
